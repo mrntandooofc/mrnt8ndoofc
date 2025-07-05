@@ -1,48 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LADYBUG.INC BOT</title>
-    <link rel="stylesheet" href="style.css">
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>LADYBUG.INC BOT</title>
+ <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div id="loading-screen">
-        <h2>Loading...</h2>
-    </div>
+ <!-- Loading Screen -->
+ <div id="loading-screen">
+ <h2>Loading...</h2>
+ </div>
 
-    <!-- Main Content -->
-    <div id="main-content" style="display:none;">
-        <!-- Background Audio -->
-        <audio id="background-audio" loop>
-            <source src="background-music.mp3" type="audio/mp3">
-            Your browser does not support the audio element.
-        </audio>
+ <!-- Main Content -->
+ <div id="main-content" style="display:none;">
+ <!-- Background Audio -->
+ <audio id="background-audio" loop autoplay>
+ <source src="background-music.mp3" type="audio/mp3">
+ Your browser does not support the audio element.
+ </audio>
 
-        <!-- Animated Background -->
-        <canvas id="animated-background"></canvas>
+ <!-- Dashboard Container -->
+ <div id="dashboard-container">
+ <!-- WhatsApp Group and Channel Join Section -->
+ <div id="whatsapp-section" class="dashboard-item">
+ <h2>WhatsApp</h2>
+ <button id="join-whatsapp-group" onclick="joinWhatsAppGroup()">Join Group</button>
+ <button id="join-whatsapp-channel" onclick="joinWhatsAppChannel()">Join Channel</button>
+ </div>
 
-        <!-- WhatsApp Group and Channel Join Section -->
-        <div id="whatsapp-section">
-            <h2>Join Our WhatsApp Group and Channel</h2>
-            <button id="join-whatsapp-group">Join Group</button>
-            <button id="join-whatsapp-channel">Join Channel</button>
-        </div>
+ <!-- GitHub Repo Fork Section -->
+ <div id="github-section" class="dashboard-item">
+ <h2>GitHub</h2>
+ <button id="fork-github-repo" onclick="forkGitHubRepo()">Fork Repo</button>
+ </div>
 
-        <!-- GitHub Repo Fork Section -->
-        <div id="github-section">
-            <h2>Fork Our GitHub Repository</h2>
-            <button id="fork-github-repo">Fork Repo</button>
-        </div>
+ <!-- Bot Section -->
+ <div id="bot-section" class="dashboard-item">
+ <h2>LADYBUG.INC BOT</h2>
+ <button id="open-bot" onclick="openBot()">Open Bot</button>
+ </div>
+ </div>
 
-        <!-- Bot Section -->
-        <div id="bot-section" style="display:none;">
-            <h2>Welcome to LADYBUG.INC BOT</h2>
-            <!-- Add your bot content here -->
-        </div>
-    </div>
+ <!-- Animated Background -->
+ <canvas id="animated-background"></canvas>
+ </div>
 
-    <script src="script.js"></script>
+ <script src="script.js"></script>
 </body>
 </html>
