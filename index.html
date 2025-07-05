@@ -1,127 +1,146 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LADYBUG.INC BOT</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-</head>
-<body>
-    <!-- Loading Screen -->
-    <div id="loading-screen">
-        <h2>Loading...</h2>
-        <div class="loader"></div>
-    </div>
+// Wait for the document to be fully loaded
+document.addEventListener('DOMContentLoaded', init);
 
-    <!-- Main Content -->
-    <div id="main-content" style="display:none;">
-        <!-- Background Audio -->
-        <audio id="background-audio" loop autoplay>
-            <source src="https://files.catbox.moe/t36etv.mp3" type="audio/mp3">
-            Your browser does not support the audio element.
-        </audio>
+// Initialize the application
+function init() {
+  // Hide loading screen and show main content
+  hideLoadingScreen();
 
-        <!-- Background Image -->
-        <div id="background-image"></div>
+  // Initialize background audio control
+  initBackgroundAudio();
 
-        <!-- Dashboard Container -->
-        <div id="dashboard-container">
-            <!-- Menu Section -->
-            <div id="menu-section">
-                <ul>
-                    <li><a href="#" onclick="showPage('dashboard')">Dashboard</a></li>
-                    <li><a href="#" onclick="showPage('whatsapp')">WhatsApp</a></li>
-                    <li><a href="#" onclick="showPage('github')">GitHub</a></li>
-                    <li><a href="#" onclick="showPage('bot')">LADYBUG.INC BOT</a></li>
-                    <li><a href="#" onclick="showPage('features')">Features</a></li>
-                    <li><a href="#" onclick="showPage('testimonials')">Testimonials</a></li>
-                    <li><a href="#" onclick="showPage('bots')">Bots</a></li>
-                    <li><a href="#" onclick="showPage('pair-site')">Pair Site</a></li>
-                </ul>
-            </div>
+  // Initialize Particles.js for animated background
+  initParticlesJS();
+}
 
-            <!-- Dashboard Content Section -->
-            <div id="dashboard-content-section">
-                <!-- Dashboard Page -->
-                <div id="dashboard-page" style="display:block;">
-                    <h1>LADYBUG.INC BOT</h1>
-                    <p>Welcome to the dashboard!</p>
-                </div>
+// Hide loading screen and show main content
+function hideLoadingScreen() {
+  document.getElementById('loading-screen').style.display = 'none';
+  document.getElementById('main-content').style.display = 'block';
+}
 
-                <!-- WhatsApp Page -->
-                <div id="whatsapp-page" style="display:none;">
-                    <h2>WhatsApp</h2>
-                    <button id="join-whatsapp-group" onclick="joinWhatsAppGroup()">Join Group</button>
-                    <button id="join-whatsapp-channel" onclick="joinWhatsAppChannel()">Join Channel</button>
-                </div>
+// Initialize background audio control
+function initBackgroundAudio() {
+  const backgroundAudio = document.getElementById('background-audio');
+  backgroundAudio.volume = 0.5; // Adjust volume
 
-                <!-- GitHub Page -->
-                <div id="github-page" style="display:none;">
-                    <h2>GitHub</h2>
-                    <button id="fork-github-repo" onclick="forkGitHubRepo()">Fork Repo</button>
-                </div>
+  // Play audio on user interaction
+  document.addEventListener('click', () => {
+    if (backgroundAudio.paused) {
+      backgroundAudio.play().catch((error) => {
+        console.log('Background audio play failed:', error);
+      });
+    }
+  });
+}
 
-                <!-- Bot Page -->
-                <div id="bot-page" style="display:none;">
-                    <h2>LADYBUG.INC BOT</h2>
-                    <button id="open-bot" onclick="openBot()">Open Bot</button>
-                </div>
+// Initialize Particles.js for animated background
+function initParticlesJS() {
+  particlesJS('animated-background', {
+    particles: {
+      number: {
+        value: 80,
+        density: {
+          enable: true,
+          value_area: 800,
+        },
+      },
+      color: {
+        value: '#ffffff',
+      },
+      shape: {
+        type: 'circle',
+      },
+      opacity: {
+        value: 0.5,
+      },
+      size: {
+        value: 3,
+      },
+      line_linked: {
+        enable: true,
+        distance: 150,
+        color: '#ffffff',
+        opacity: 0.4,
+        width: 1,
+      },
+      move: {
+        enable: true,
+        speed: 6,
+        direction: 'none',
+        random: false,
+        straight: false,
+        out_mode: 'out',
+        bounce: false,
+      },
+    },
+    interactivity: {
+      detect_on: 'canvas',
+      events: {
+        onhover: {
+          enable: true,
+          mode: 'repulse',
+        },
+        onclick: {
+          enable: true,
+          mode: 'push',
+        },
+        resize: true,
+      },
+      modes: {
+        grab: {
+          distance: 400,
+          line_linked: {
+            opacity: 1,
+          },
+        },
+        bubble: {
+          distance: 400,
+          size: 40,
+          duration: 2,
+          opacity: 8,
+          speed: 3,
+        },
+        repulse: {
+          distance: 200,
+          duration: 0.4,
+        },
+        push: {
+          particles_nb: 4,
+        },
+        remove: {
+          particles_nb: 2,
+        },
+      },
+    },
+    retina_detect: true,
+  });
+}
 
-                <!-- Features Page -->
-                <div id="features-page" style="display:none;">
-                    <h2>Features</h2>
-                    <ul>
-                        <li>Automated Task Management</li>
-                        <li>Customizable Commands</li>
-                        <li>Advanced Analytics</li>
-                    </ul>
-                </div>
+// Menu Section
+function showPage(page) {
+  const pages = ['dashboard', 'whatsapp', 'github', 'bot', 'features', 'testimonials', 'bots', 'pair-site'];
+  pages.forEach((p) => {
+    document.getElementById(`${p}-page`).style.display = 'none';
+  });
+  document.getElementById(`${page}-page`).style.display = 'block';
+}
 
-                <!-- Testimonials Page -->
-                <div id="testimonials-page" style="display:none;">
-                    <h2>Testimonials</h2>
-                    <p>"LADYBUG.INC BOT has revolutionized our workflow!"</p>
-                    <p>- John Doe, CEO</p>
-                </div>
+// WhatsApp Page
+function joinWhatsAppGroup() {
+  window.open('https://chat.whatsapp.com/FyKE4VkFZiqAx82RjMBpnM?mode=r_c', '_blank');
+}
 
-                <!-- Bots Page -->
-                <div id="bots-page" style="display:none;">
-                    <h2>Bots</h2>
-                    <ul>
-                        <li><a href="#">Bot1</a></li>
-                        <li><a href="#">Bot2</a></li>
-                        <li><a href="#">Bot3</a></li>
-                    </ul>
-                </div>
+function joinWhatsAppChannel() {
+  window.open('https://whatsapp.com/channel/0029VbAhndjKLaHneeiTAy3J', '_blank');
+}
 
-                <!-- Pair Site Page -->
-                <div id="pair-site-page" style="display:none;">
-                    <h2>Pair Site</h2>
-                    <ul>
-                        <li><a href="#">Site1</a></li>
-                        <li><a href="#">Site2</a></li>
-                        <li><a href="#">Site3</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+// GitHub Page
+function forkGitHubRepo() {
+  window.open('https://github.com/mrntandooofc/LADYBUG-BOT', '_blank');
+}
 
-        <!-- Animated Background -->
-        <canvas id="animated-background"></canvas>
-
-        <!-- Footer Section -->
-        <footer id="footer-section">
-            <p>2025 LADYBUG.INC. All rights reserved.</p>
-            <div class="social-links">
-                <a href="#" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-                <a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-            </div>
-        </footer>
-    </div>
-
-    <script src="script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
-</body>
-</html>
+// Bot Page
+function openBot() {
+  alert('Bot opened!');
+}
