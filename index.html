@@ -1,68 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ladybug Bot Inc</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ladybug Bot Inc</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div id="loading-screen">
-        <div class="loading-animation">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <div class="loading-animation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div id="main-content" style="display: none;">
+    <!-- Animated Background -->
+    <div id="animated-background"></div>
+
+    <!-- Header -->
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#" onclick="showPage('dashboard')">Dashboard</a></li>
+          <li><a href="#" onclick="showPage('whatsapp')">WhatsApp</a></li>
+          <li><a href="#" onclick="showPage('github')">GitHub</a></li>
+          <li><a href="#" onclick="showPage('bot')">Bot</a></li>
+          <li><a href="#" onclick="showPage('features')">Features</a></li>
+          <li><a href="#" onclick="showPage('testimonials')">Testimonials</a></li>
+          <li><a href="#" onclick="showPage('bots')">Bots</a></li>
+          <li><a href="#" onclick="showPage('pair-site')">Pair Site</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Pages -->
+    <div id="dashboard-page" style="display: block;">
+      <h1 id="welcome-text"></h1>
+    </div>
+    <div id="whatsapp-page" style="display: none;">
+      <button onclick="joinWhatsAppGroup()">Join WhatsApp Group</button>
+      <button onclick="joinWhatsAppChannel()">Join WhatsApp Channel</button>
+    </div>
+    <div id="github-page" style="display: none;">
+      <button onclick="forkGitHubRepo()">Fork GitHub Repo</button>
+    </div>
+    <div id="bot-page" style="display: none;">
+      <button onclick="openBot()">Open Bot</button>
+    </div>
+    <div id="features-page" style="display: none;">
+      <h2>Features</h2>
+      <ul>
+        <li>Feature 1</li>
+        <li>Feature 2</li>
+        <li>Feature 3</li>
+      </ul>
+    </div>
+    <div id="testimonials-page" style="display: none;">
+      <h2>Testimonials</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+    </div>
+    <div id="bots-page" style="display: none;">
+      <h2>Bots</h2>
+      <ul>
+        <li>Bot 1</li>
+        <li>Bot 2</li>
+        <li>Bot 3</li>
+      </ul>
+    </div>
+    <div id="pair-site-page" style="display: none;">
+      <h2>Pair Site</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
     </div>
 
-    <!-- Main Content -->
-    <div id="main-content" style="display: none;">
-        <!-- Animated Background -->
-        <div id="animated-background"></div>
+    <!-- Background Audio -->
+    <audio id="background-audio" loop>
+      <source src="background-audio.mp3" type="audio/mp3">
+    </audio>
+  </div>
 
-        <!-- Header -->
-        <header>
-            <nav>
-                <ul>
-                    <li><a href="#" onclick="showPage('dashboard')">Dashboard</a></li>
-                    <li><a href="#" onclick="showPage('whatsapp')">WhatsApp</a></li>
-                    <li><a href="#" onclick="showPage('github')">GitHub</a></li>
-                    <li><a href="#" onclick="showPage('bot')">Bot</a></li>
-                    <li><a href="#" onclick="showPage('features')">Features</a></li>
-                    <li><a href="#" onclick="showPage('testimonials')">Testimonials</a></li>
-                    <li><a href="#" onclick="showPage('bots')">Bots</a></li>
-                    <li><a href="#" onclick="showPage('pair-site')">Pair Site</a></li>
-                </ul>
-            </nav>
-        </header>
-
-        <!-- Pages -->
-        <div id="dashboard-page" style="display: block;">
-            <h1 id="welcome-text"></h1>
-        </div>
-        <div id="whatsapp-page" style="display: none;">
-            <button onclick="joinWhatsAppGroup()">Join WhatsApp Group</button>
-            <button onclick="joinWhatsAppChannel()">Join WhatsApp Channel</button>
-        </div>
-        <div id="github-page" style="display: none;">
-            <button onclick="forkGitHubRepo()">Fork GitHub Repo</button>
-        </div>
-        <div id="bot-page" style="display: none;">
-            <button onclick="openBot()">Open Bot</button>
-        </div>
-        <div id="features-page" style="display: none;">Features Page</div>
-        <div id="testimonials-page" style="display: none;">Testimonials Page</div>
-        <div id="bots-page" style="display: none;">Bots Page</div>
-        <div id="pair-site-page" style="display: none;">Pair Site Page</div>
-
-        <!-- Background Audio -->
-        <audio id="background-audio" loop>
-            <source src="background-audio.mp3" type="audio/mp3">
-        </audio>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
