@@ -1,8 +1,8 @@
-// Hide loading screen and show main content after2 seconds
+// Hide loading screen and show main content after 2 seconds
 setTimeout(() => {
  document.getElementById('loading-screen').style.display = 'none';
  document.getElementById('main-content').style.display = 'flex';
-},2000);
+}, 2000);
 
 // Initialize particles.js
 particlesJS('animated-background', {
@@ -27,7 +27,7 @@ particlesJS('animated-background', {
  "nb_sides": 5
  },
  "image": {
- "src": "img/github.svg",
+ "src": "https://files.catbox.moe/v4uy4x.jpg",
  "width": 100,
  "height": 100
  }
@@ -119,19 +119,19 @@ particlesJS('animated-background', {
 // Function to join WhatsApp group
 function joinWhatsAppGroup() {
  // Replace with your WhatsApp group link
- window.open('https://chat.whatsapp.com/YOUR_GROUP_LINK', '_blank');
+ window.open('https://chat.whatsapp.com/FyKE4VkFZiqAx82RjMBpnM?mode=r_c', '_blank');
 }
 
 // Function to join WhatsApp channel
 function joinWhatsAppChannel() {
  // Replace with your WhatsApp channel link
- window.open('https://whatsapp.com/channel/YOUR_CHANNEL_LINK', '_blank');
+ window.open('https://whatsapp.com/channel/0029VbAhndjKLaHneeiTAy3J', '_blank');
 }
 
 // Function to fork GitHub repository
 function forkGitHubRepo() {
  // Replace with your GitHub repository link
- window.open('https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME', '_blank');
+ window.open('https://github.com/mrnt4ndoofc/LADYBUG-MD', '_blank');
 }
 
 // Function to open bot
