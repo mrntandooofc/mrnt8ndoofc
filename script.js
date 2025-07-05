@@ -119,51 +119,121 @@ document.addEventListener('DOMContentLoaded', function() {
                     "repulse": {
                         "distance": 200,
                         "duration": 0.4
-                    },
-                    "push": {
-                        "particles_nb": 4
-                    },
-                    "remove": {
-                        "particles_nb": 2
-                    }
-                }
-            },
-            "retina_detect": true
-        });
-    }, 2000); // Adjust the timeout as needed
+// Loading Screen
+window.addEventListener('load', () => {
+    document.getElementById('loading-screen').style.display = 'none';
+    document.getElementById('main-content').style.display = 'block';
 });
 
-// Function to show different pages
-function showPage(pageId) {
-    // List of all page IDs
+// Background Audio
+const backgroundAudio = document.getElementById('background-audio');
+backgroundAudio.play();
+
+// Menu Section
+function showPage(page) {
     const pages = ['dashboard', 'whatsapp', 'github', 'bot', 'features', 'testimonials', 'bots', 'pair-site'];
-
-    // Hide all pages
-    pages.forEach(function(id) {
-        document.getElementById(`${id}-page`).style.display = 'none';
+    pages.forEach((p) => {
+        document.getElementById(`${p}-page`).style.display = 'none';
     });
-
-    // Show the selected page
-    document.getElementById(`${pageId}-page`).style.display = 'block';
+    document.getElementById(`${page}-page`).style.display = 'block';
 }
 
-// Example functions for button clicks
+// WhatsApp Page
 function joinWhatsAppGroup() {
-    console.log('Join WhatsApp Group clicked');
-    // Add functionality here
+    // Add WhatsApp group link
+    window.open('https://chat.whatsapp.com/FyKE4VkFZiqAx82RjMBpnM?mode=r_c', '_blank');
 }
 
 function joinWhatsAppChannel() {
-    console.log('Join WhatsApp Channel clicked');
-    // Add functionality here
+    // Add WhatsApp channel link
+    window.open('https://whatsapp.com/channel/0029VbAhndjKLaHneeiTAy3J', '_blank');
 }
 
+// GitHub Page
 function forkGitHubRepo() {
-    console.log('Fork GitHub Repo clicked');
-    // Add functionality here
+    // Add GitHub repository link
+    window.open('https://github.com/mrntandooofc/LADYBUG-BOT', '_blank');
 }
 
+// Bot Page
 function openBot() {
-    console.log('Open Bot clicked');
-    // Add functionality here
+    // Add bot link or functionality
+    alert('Bot opened!');
 }
+
+// Animated Background
+particlesJS('animated-background', {
+    particles: {
+        number: {
+            value: 100,
+        },
+        color: {
+            value: '#ffffff',
+        },
+        shape: {
+            type: 'circle',
+        },
+        opacity: {
+            value: 0.5,
+        },
+        size: {
+            value: 3,
+        },
+        line_linked: {
+            enable: true,
+            distance: 150,
+            color: '#ffffff',
+            opacity: 0.4,
+            width: 1,
+        },
+        move: {
+            enable: true,
+            speed: 2,
+            direction: 'none',
+            random: false,
+            straight: false,
+            out_mode: 'out',
+            bounce: false,
+        },
+    },
+    interactivity: {
+        detect_on: 'canvas',
+        events: {
+            onhover: {
+                enable: true,
+                mode: 'repulse',
+            },
+            onclick: {
+                enable: true,
+                mode: 'push',
+            },
+            resize: true,
+        },
+        modes: {
+            grab: {
+                distance: 400,
+                line_linked: {
+                    opacity: 1,
+                },
+            },
+            bubble: {
+                distance: 400,
+                size: 40,
+                duration: 2,
+                opacity: 8,
+                speed: 3,
+            },
+            repulse: {
+                distance: 200,
+                duration: 0.4,
+            },
+            push: {
+                particles_nb: 4,
+            },
+            remove: {
+                particles_nb: 2,
+            },
+        },
+    },
+    retina_detect: true,
+});
