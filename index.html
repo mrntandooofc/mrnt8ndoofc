@@ -5,11 +5,13 @@
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>LADYBUG.INC BOT</title>
  <link rel="stylesheet" href="style.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 </head>
 <body>
  <!-- Loading Screen -->
  <div id="loading-screen">
  <h2>Loading...</h2>
+ <div class="loader"></div>
  </div>
 
  <!-- Main Content -->
@@ -24,28 +26,39 @@
  <div id="dashboard-container">
  <!-- WhatsApp Group and Channel Join Section -->
  <div id="whatsapp-section" class="dashboard-item">
- <h2>WhatsApp</h2>
+ <h2><i class="fa-brands fa-whatsapp"></i> WhatsApp</h2>
  <button id="join-whatsapp-group" onclick="joinWhatsAppGroup()">Join Group</button>
  <button id="join-whatsapp-channel" onclick="joinWhatsAppChannel()">Join Channel</button>
  </div>
 
  <!-- GitHub Repo Fork Section -->
  <div id="github-section" class="dashboard-item">
- <h2>GitHub</h2>
+ <h2><i class="fa-brands fa-github"></i> GitHub</h2>
  <button id="fork-github-repo" onclick="forkGitHubRepo()">Fork Repo</button>
  </div>
 
  <!-- Bot Section -->
  <div id="bot-section" class="dashboard-item">
- <h2>LADYBUG.INC BOT</h2>
+ <h2><i class="fa-solid fa-robot"></i> LADYBUG.INC BOT</h2>
  <button id="open-bot" onclick="openBot()">Open Bot</button>
  </div>
  </div>
 
  <!-- Animated Background -->
  <canvas id="animated-background"></canvas>
+
+ <!-- Footer Section -->
+ <footer id="footer-section">
+ <p>© 2023 LADYBUG.INC. All rights reserved.</p>
+ <div class="social-links">
+ <a href="#" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+ <a href="#" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+ <a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+ </div>
+ </footer>
  </div>
 
  <script src="script.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
 </body>
 </html>
