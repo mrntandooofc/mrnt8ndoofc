@@ -1,89 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>LADYBUG.INC BOT</title>
- <link rel="stylesheet" href="style.css">
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LADYBUG.INC BOT</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 </head>
 <body>
- <!-- Loading Screen -->
- <div id="loading-screen">
- <h2>Loading...</h2>
- <div class="loader"></div>
- </div>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <h2>Loading...</h2>
+        <div class="loader"></div>
+    </div>
 
- <!-- Main Content -->
- <div id="main-content" style="display:none;">
- <!-- Background Audio -->
- <audio id="background-audio" loop autoplay>
- <source src="https://files.catbox.moe/t36etv.mp3" type="audio/mp3">
- Your browser does not support the audio element.
- </audio>
+    <!-- Main Content -->
+    <div id="main-content" style="display:none;">
+        <!-- Background Audio -->
+        <audio id="background-audio" loop autoplay>
+            <source src="background-music.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
 
- <!-- Background Image -->
- <div id="background-image"></div>
+        <!-- Background Image -->
+        <div id="background-image"></div>
 
- <!-- Dashboard Container -->
- <div id="dashboard-container">
- <!-- Header Section -->
- <div id="header-section">
- <h1>LADYBUG.INC BOT</h1>
- </div>
+        <!-- Dashboard Container -->
+        <div id="dashboard-container">
+            <!-- Menu Section -->
+            <div id="menu-section">
+                <ul>
+                    <li><a href="#" onclick="showSection('whatsapp-section')"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a></li>
+                    <li><a href="#" onclick="showSection('github-section')"><i class="fa-brands fa-github"></i> GitHub</a></li>
+                    <li><a href="#" onclick="showSection('bot-section')"><i class="fa-solid fa-robot"></i> LADYBUG.INC BOT</a></li>
+                    <li><a href="#" onclick="showSection('features-section')"><i class="fa-solid fa-cogs"></i> Features</a></li>
+                    <li><a href="#" onclick="showSection('testimonials-section')"><i class="fa-solid fa-quote-left"></i> Testimonials</a></li>
+                    <li><a href="#" onclick="showSection('bots-section')"><i class="fa-solid fa-robot"></i> Bots</a></li>
+                    <li><a href="#" onclick="showSection('pair-site-section')"><i class="fa-solid fa-link"></i> Pair Site</a></li>
+                </ul>
+            </div>
 
- <!-- WhatsApp Group and Channel Join Section -->
- <div id="whatsapp-section" class="dashboard-item">
- <h2><i class="fa-brands fa-whatsapp"></i> WhatsApp</h2>
- <button id="join-whatsapp-group" onclick="joinWhatsAppGroup()">Join Group</button>
- <button id="join-whatsapp-channel" onclick="joinWhatsAppChannel()">Join Channel</button>
- </div>
+            <!-- Dashboard Content Section -->
+            <div id="dashboard-content-section">
+                <!-- Header Section -->
+                <div id="header-section">
+                    <h1>LADYBUG.INC BOT</h1>
+                </div>
 
- <!-- GitHub Repo Fork Section -->
- <div id="github-section" class="dashboard-item">
- <h2><i class="fa-brands fa-github"></i> GitHub</h2>
- <button id="fork-github-repo" onclick="forkGitHubRepo()">Fork Repo</button>
- </div>
+                <!-- WhatsApp Group and Channel Join Section -->
+                <div id="whatsapp-section" class="dashboard-item" style="display:none;">
+                    <h2>WhatsApp</h2>
+                    <button id="join-whatsapp-group" onclick="joinWhatsAppGroup()">Join Group</button>
+                    <button id="join-whatsapp-channel" onclick="joinWhatsAppChannel()">Join Channel</button>
+                </div>
 
- <!-- Bot Section -->
- <div id="bot-section" class="dashboard-item">
- <h2><i class="fa-solid fa-robot"></i> LADYBUG.INC BOT</h2>
- <button id="open-bot" onclick="openBot()">Open Bot</button>
- </div>
+                <!-- GitHub Repo Fork Section -->
+                <div id="github-section" class="dashboard-item" style="display:none;">
+                    <h2>GitHub</h2>
+                    <button id="fork-github-repo" onclick="forkGitHubRepo()">Fork Repo</button>
+                </div>
 
- <!-- Features Section -->
- <div id="features-section" class="dashboard-item">
- <h2>Features</h2>
- <ul>
- <li>Automated Task Management</li>
- <li>Customizable Commands</li>
- <li>Advanced Analytics</li>
- </ul>
- </div>
+                <!-- Bot Section -->
+                <div id="bot-section" class="dashboard-item" style="display:none;">
+                    <h2>LADYBUG.INC BOT</h2>
+                    <button id="open-bot" onclick="openBot()">Open Bot</button>
+                </div>
 
- <!-- Testimonials Section -->
- <div id="testimonials-section" class="dashboard-item">
- <h2>Testimonials</h2>
- <p>"LADYBUG.INC BOT has revolutionized our workflow!"</p>
- <p>- John Doe, CEO</p>
- </div>
- </div>
+                <!-- Features Section -->
+                <div id="features-section" class="dashboard-item" style="display:none;">
+                    <h2>Features</h2>
+                    <ul>
+                        <li>Automated Task Management</li>
+                        <li>Customizable Commands</li>
+                        <li>Advanced Analytics</li>
+                    </ul>
+                </div>
 
- <!-- Animated Background -->
- <canvas id="animated-background"></canvas>
+                <!-- Testimonials Section -->
+                <div id="testimonials-section" class="dashboard-item" style="display:none;">
+                    <h2>Testimonials</h2>
+                    <p>"LADYBUG.INC BOT has revolutionized our workflow!"</p>
+                    <p>- John Doe, CEO</p>
+                </div>
 
- <!-- Footer Section -->
- <footer id="footer-section">
- <p>©2023 LADYBUG.INC. All rights reserved.</p>
- <div class="social-links">
- <a href="#" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
- <a href="#" target="_blank"><i class="fa-brands fa-twitter"></i></a>
- <a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
- </div>
- </footer>
- </div>
+                <!-- Bots Section -->
+                <div id="bots-section" class="dashboard-item" style="display:none;">
+                    <h2>Bots</h2>
+                    <ul>
+                        <li><a href="#">Bot 1</a></li>
+                        <li><a href="#">Bot 2</a></li>
+                        <li><a href="#">Bot 3</a></li>
+                    </ul>
+                </div>
 
- <script src="script.js"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+                <!-- Pair Site Section -->
+                <div id="pair-site-section" class="dashboard-item" style="display:none;">
+                    <h2>Pair Site</h2>
+                    <ul>
+                        <li><a href="#">Site 1</a></li>
+                        <li><a href="#">Site 2</a></li>
+                        <li><a href="#">Site 3</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Animated Background -->
+        <canvas id="animated-background"></canvas>
+
+        <!-- Footer Section -->
+        <footer id="footer-section">
+            <p> 2023 LADYBUG.INC. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
 </body>
 </html>
